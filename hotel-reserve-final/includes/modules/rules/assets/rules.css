@@ -1,0 +1,109 @@
+/**
+ * استایل ماژول قوانین و کنسلی
+ */
+
+.wchr-rules-section {
+    margin: 40px 0;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.rules-container {
+    display: grid;
+    gap: 20px;
+}
+
+.rule-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-right: 4px solid #667eea;
+    transition: all 0.3s;
+}
+
+.rule-card:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateX(-4px);
+}
+
+.rule-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 20px 0;
+}
+
+.rule-title svg {
+    color: #667eea;
+}
+
+.rule-content {
+    color: #4b5563;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.rule-content p {
+    margin-bottom: 12px;
+}
+
+.rule-content p:last-child {
+    margin-bottom: 0;
+}
+
+.time-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 20px;
+    background: #f9fafb;
+    border-radius: 10px;
+    margin-bottom: 12px;
+}
+
+.time-item:last-child {
+    margin-bottom: 0;
+}
+
+.time-label {
+    font-weight: 600;
+    color: #6b7280;
+}
+
+.time-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #667eea;
+}
+
+@media (max-width: 768px) {
+    .wchr-rules-section {
+        margin: 30px 0;
+    }
+
+    .rule-card {
+        padding: 20px;
+    }
+
+    .rule-title {
+        font-size: 18px;
+    }
+
+    .rule-content {
+        font-size: 14px;
+    }
+
+    .time-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 12px 16px;
+    }
+
+    .time-value {
+        font-size: 16px;
+    }
+}

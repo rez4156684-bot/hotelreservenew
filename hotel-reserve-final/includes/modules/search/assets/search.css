@@ -1,0 +1,471 @@
+/**
+ * استایل ماژول جستجو
+ * طراحی مدرن و ریسپانسیو
+ */
+
+/* ================== بخش جستجو ================== */
+.wchr-search-section {
+    margin: 40px 0;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.search-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.search-container::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* ================== هدر جستجو ================== */
+.search-header {
+    text-align: center;
+    margin-bottom: 32px;
+    position: relative;
+    z-index: 1;
+}
+
+.search-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 28px;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 8px 0;
+}
+
+.search-title svg {
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+.search-subtitle {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+}
+
+/* ================== فرم جستجو ================== */
+.wchr-search-form {
+    position: relative;
+    z-index: 1;
+}
+
+.search-fields {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+/* ================== فیلدهای جستجو ================== */
+.search-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.field-label svg {
+    opacity: 0.9;
+}
+
+.field-input {
+    width: 100%;
+    padding: 14px 16px;
+    background: white;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    font-size: 15px;
+    font-family: inherit;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.field-input:focus {
+    outline: none;
+    border-color: #fbbf24;
+    box-shadow: 0 4px 20px rgba(251, 191, 36, 0.4);
+    transform: translateY(-2px);
+}
+
+.field-input::placeholder {
+    color: #9ca3af;
+}
+
+/* ================== انتخابگر مهمان ================== */
+.guest-selector {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 8px;
+    background: white;
+    border-radius: 12px;
+    padding: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.guest-btn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.guest-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.guest-btn:active {
+    transform: scale(0.95);
+}
+
+.guest-input {
+    text-align: center;
+    font-weight: 600;
+    font-size: 18px;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    background: transparent;
+}
+
+.guest-input:focus {
+    transform: none;
+    box-shadow: none;
+}
+
+/* ================== دکمه جستجو ================== */
+.search-submit-btn {
+    width: 100%;
+    padding: 18px 32px;
+    background: white;
+    color: #667eea;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.search-submit-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    background: #fbbf24;
+    color: #111827;
+}
+
+.search-submit-btn:active {
+    transform: translateY(-2px);
+}
+
+.search-submit-btn svg {
+    transition: transform 0.3s;
+}
+
+.search-submit-btn:hover svg {
+    transform: rotate(90deg);
+}
+
+/* ================== نتیجه جستجو ================== */
+.search-result {
+    margin-top: 24px;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.result-success {
+    border-right: 4px solid #10b981;
+}
+
+.result-error {
+    border-right: 4px solid #ef4444;
+}
+
+.result-info {
+    border-right: 4px solid #3b82f6;
+}
+
+.result-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    color: #111827;
+}
+
+.result-details {
+    display: grid;
+    gap: 12px;
+    margin: 16px 0;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: #f9fafb;
+    border-radius: 8px;
+}
+
+.result-label {
+    font-weight: 600;
+    color: #6b7280;
+}
+
+.result-value {
+    font-weight: 700;
+    color: #111827;
+}
+
+.result-price {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 2px solid #e5e7eb;
+}
+
+.price-label {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.price-amount {
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.price-currency {
+    font-size: 16px;
+    color: #6b7280;
+}
+
+.result-action {
+    margin-top: 20px;
+}
+
+.btn-add-to-cart {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.btn-add-to-cart:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(16, 185, 129, 0.5);
+}
+
+.btn-add-to-cart:active {
+    transform: translateY(0);
+}
+
+/* ================== حالت لودینگ ================== */
+.search-submit-btn.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.search-submit-btn.loading::after {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border: 3px solid white;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ================== انیمیشن‌ها ================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================== سفارشی‌سازی Datepicker ================== */
+.pwt-btn-switch,
+.pwt-btn-today {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+}
+
+.table-days td.selected,
+.table-days td.selected:hover {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    color: white !important;
+}
+
+/* ================== ریسپانسیو - تبلت ================== */
+@media (max-width: 1024px) {
+    .search-container {
+        padding: 32px;
+    }
+
+    .search-fields {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .search-title {
+        font-size: 24px;
+    }
+}
+
+/* ================== ریسپانسیو - موبایل ================== */
+@media (max-width: 768px) {
+    .wchr-search-section {
+        margin: 30px -16px;
+    }
+
+    .search-container {
+        border-radius: 0;
+        padding: 24px 16px;
+    }
+
+    .search-header {
+        margin-bottom: 24px;
+    }
+
+    .search-title {
+        font-size: 22px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .search-subtitle {
+        font-size: 14px;
+    }
+
+    .search-fields {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .field-input {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    .search-submit-btn {
+        padding: 16px 24px;
+        font-size: 16px;
+    }
+
+    .result-title {
+        font-size: 16px;
+    }
+
+    .price-amount {
+        font-size: 28px;
+    }
+}
+
+/* ================== موبایل کوچک ================== */
+@media (max-width: 480px) {
+    .search-container {
+        padding: 20px 12px;
+    }
+
+    .search-title {
+        font-size: 20px;
+    }
+
+    .field-label {
+        font-size: 13px;
+    }
+
+    .guest-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .guest-input {
+        font-size: 16px;
+    }
+
+    .search-submit-btn {
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+
+    .price-amount {
+        font-size: 24px;
+    }
+}
+
+/* ================== پرینت ================== */
+@media print {
+    .search-submit-btn,
+    .btn-add-to-cart {
+        display: none;
+    }
+
+    .search-container {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}

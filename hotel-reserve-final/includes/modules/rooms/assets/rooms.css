@@ -1,0 +1,530 @@
+/**
+ * استایل ماژول اتاق‌ها
+ * طراحی ریسپانسیو و مدرن با گرافیک عالی
+ */
+
+/* ================== متغیرها ================== */
+:root {
+    --wchr-primary: #667eea;
+    --wchr-primary-dark: #5a67d8;
+    --wchr-secondary: #764ba2;
+    --wchr-success: #10b981;
+    --wchr-danger: #ef4444;
+    --wchr-warning: #f59e0b;
+    --wchr-text: #1f2937;
+    --wchr-text-light: #6b7280;
+    --wchr-border: #e5e7eb;
+    --wchr-bg: #f9fafb;
+    --wchr-white: #ffffff;
+    --wchr-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --wchr-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --wchr-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --wchr-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    --wchr-radius: 12px;
+    --wchr-radius-lg: 16px;
+}
+
+/* ================== بخش اتاق‌ها ================== */
+.wchr-rooms-section {
+    margin: 40px 0;
+    padding: 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeInDown 0.6s ease-out;
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--wchr-text);
+    margin: 0 0 12px 0;
+}
+
+.section-title .icon {
+    font-size: 36px;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.section-description {
+    font-size: 16px;
+    color: var(--wchr-text-light);
+    margin: 0;
+}
+
+/* ================== کانتینر اتاق‌ها ================== */
+.wchr-rooms-container {
+    display: grid;
+    gap: 30px;
+    margin: 0;
+}
+
+/* لایه Grid */
+.wchr-rooms-container.layout-grid {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+/* لایه List */
+.wchr-rooms-container.layout-list {
+    grid-template-columns: 1fr;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* لایه Carousel - برای موبایل بهتر است */
+.wchr-rooms-container.layout-carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 20px;
+    padding-bottom: 20px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.wchr-rooms-container.layout-carousel .wchr-room-card {
+    flex: 0 0 85%;
+    scroll-snap-align: center;
+}
+
+/* ================== کارت اتاق ================== */
+.wchr-room-card {
+    background: var(--wchr-white);
+    border-radius: var(--wchr-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--wchr-shadow);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.wchr-room-card:nth-child(1) { animation-delay: 0.1s; }
+.wchr-room-card:nth-child(2) { animation-delay: 0.2s; }
+.wchr-room-card:nth-child(3) { animation-delay: 0.3s; }
+.wchr-room-card:nth-child(4) { animation-delay: 0.4s; }
+
+.wchr-room-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--wchr-shadow-xl);
+}
+
+.wchr-room-card:hover .room-image img {
+    transform: scale(1.1);
+}
+
+/* ================== تصویر اتاق ================== */
+.room-image {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.room-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.room-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 50px;
+    box-shadow: var(--wchr-shadow-lg);
+    z-index: 2;
+}
+
+.room-badge .capacity {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--wchr-primary);
+}
+
+.room-badge svg {
+    opacity: 0.8;
+}
+
+/* ================== محتوای کارت ================== */
+.room-content {
+    padding: 24px;
+}
+
+.room-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--wchr-text);
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+}
+
+.room-description {
+    font-size: 14px;
+    color: var(--wchr-text-light);
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ================== ویژگی‌های اتاق ================== */
+.room-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--wchr-bg);
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: var(--wchr-bg);
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--wchr-text);
+    transition: all 0.3s;
+}
+
+.feature:hover {
+    background: var(--wchr-primary);
+    color: var(--wchr-white);
+    transform: translateY(-2px);
+}
+
+.feature svg {
+    opacity: 0.7;
+}
+
+/* ================== فوتر کارت (قیمت و دکمه) ================== */
+.room-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.room-price {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.price-label {
+    font-size: 12px;
+    color: var(--wchr-text-light);
+    font-weight: 500;
+}
+
+.price-value {
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--wchr-primary) 0%, var(--wchr-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+}
+
+.price-currency {
+    font-size: 14px;
+    color: var(--wchr-text-light);
+    font-weight: 600;
+}
+
+/* ================== دکمه انتخاب ================== */
+.btn-select-room {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, var(--wchr-primary) 0%, var(--wchr-secondary) 100%);
+    color: var(--wchr-white);
+    border: none;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    white-space: nowrap;
+}
+
+.btn-select-room:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
+}
+
+.btn-select-room:active {
+    transform: translateY(0);
+}
+
+.btn-select-room svg {
+    transition: transform 0.3s;
+}
+
+.btn-select-room:hover svg {
+    transform: scale(1.2);
+}
+
+/* ================== انیمیشن‌ها ================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================== حالت List ================== */
+.wchr-rooms-container.layout-list .wchr-room-card {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+}
+
+.wchr-rooms-container.layout-list .room-image {
+    height: 100%;
+    min-height: 300px;
+}
+
+.wchr-rooms-container.layout-list .room-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ================== ریسپانسیو - تبلت ================== */
+@media (max-width: 1024px) {
+    .wchr-rooms-container.layout-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
+    }
+
+    .wchr-rooms-container.layout-list .wchr-room-card {
+        grid-template-columns: 300px 1fr;
+    }
+
+    .room-image {
+        height: 220px;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+}
+
+/* ================== ریسپانسیو - موبایل ================== */
+@media (max-width: 768px) {
+    .wchr-rooms-section {
+        margin: 30px 0;
+    }
+
+    .section-header {
+        margin-bottom: 24px;
+    }
+
+    .section-title {
+        font-size: 24px;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .section-title .icon {
+        font-size: 32px;
+    }
+
+    .section-description {
+        font-size: 14px;
+    }
+
+    /* تبدیل همه لایوت‌ها به کاروسل در موبایل برای تجربه بهتر */
+    .wchr-rooms-container,
+    .wchr-rooms-container.layout-grid,
+    .wchr-rooms-container.layout-list {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 16px;
+        padding-bottom: 16px;
+        margin: 0 -16px;
+        padding-left: 16px;
+        padding-right: 16px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .wchr-rooms-container .wchr-room-card,
+    .wchr-rooms-container.layout-grid .wchr-room-card,
+    .wchr-rooms-container.layout-list .wchr-room-card {
+        flex: 0 0 90%;
+        max-width: 360px;
+        scroll-snap-align: center;
+        display: block;
+    }
+
+    .room-image {
+        height: 200px;
+    }
+
+    .room-content {
+        padding: 20px;
+    }
+
+    .room-title {
+        font-size: 20px;
+    }
+
+    .room-features {
+        gap: 8px;
+    }
+
+    .feature {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .feature svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .room-footer {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .room-price {
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: center;
+        gap: 8px;
+        padding-bottom: 16px;
+    }
+
+    .price-value {
+        font-size: 24px;
+    }
+
+    .btn-select-room {
+        width: 100%;
+        padding: 16px;
+    }
+
+    /* اسکرول‌بار زیبا برای موبایل */
+    .wchr-rooms-container::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .wchr-rooms-container::-webkit-scrollbar-track {
+        background: var(--wchr-bg);
+        border-radius: 10px;
+    }
+
+    .wchr-rooms-container::-webkit-scrollbar-thumb {
+        background: var(--wchr-primary);
+        border-radius: 10px;
+    }
+}
+
+/* ================== موبایل کوچک ================== */
+@media (max-width: 480px) {
+    .wchr-rooms-container .wchr-room-card {
+        flex: 0 0 95%;
+        max-width: 100%;
+    }
+
+    .room-image {
+        height: 180px;
+    }
+
+    .room-content {
+        padding: 16px;
+    }
+
+    .room-title {
+        font-size: 18px;
+    }
+
+    .room-description {
+        font-size: 13px;
+    }
+
+    .price-value {
+        font-size: 22px;
+    }
+
+    .btn-select-room {
+        font-size: 14px;
+        padding: 14px;
+    }
+}
+
+/* ================== حالت تاریک (اختیاری) ================== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --wchr-text: #f9fafb;
+        --wchr-text-light: #d1d5db;
+        --wchr-border: #374151;
+        --wchr-bg: #1f2937;
+        --wchr-white: #111827;
+    }
+
+    .wchr-room-card {
+        background: #1f2937;
+    }
+
+    .feature {
+        background: #374151;
+    }
+
+    .room-badge {
+        background: rgba(31, 41, 55, 0.95);
+    }
+}
+
+/* ================== پرینت ================== */
+@media print {
+    .btn-select-room {
+        display: none;
+    }
+
+    .wchr-room-card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}
